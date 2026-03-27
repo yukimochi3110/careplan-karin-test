@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ケアプランセンター花鈴 | 札幌市北区の居宅介護支援事業所</title>
+  <meta name="description" content="ケアプランセンター花鈴は、札幌市北区を中心に利用者様一人ひとりに合った介護サービスをご提案します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sand:       #f5f0e8;
+      --terra:      #c8674a;
+      --terra-dk:   #a8503a;
+      --brown:      #3a2e28;
+      --brown-mid:  #6b5a52;
+      --offwhite:   #fffdf9;
+      --rule:       rgba(58,34,24,0.09);
+      --footer-bg:  #28180f;
+      --shadow-sm:  0 2px 12px rgba(58,34,24,0.08);
+      --shadow-md:  0 4px 24px rgba(58,34,24,0.10);
+      --radius:     12px;
+      --t:          0.25s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--sand);
+      color: var(--brown);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* ─── HEADER ─────────────────────────────── */
+    body > header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,253,249,0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(200,103,74,0.15);
+      box-shadow: 0 2px 16px rgba(58,34,24,0.08);
+    }
+
+    .header-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      height: 68px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+    }
+
+    .site-logo {
+      font-size: 1.05rem; font-weight: 700; color: var(--brown);
+      text-decoration: none; letter-spacing: 0.04em; white-space: nowrap;
+    }
+    .site-logo .accent { color: var(--terra); }
+
+    .main-nav { display: flex; align-items: center; gap: 4px; }
+
+    .main-nav a {
+      color: var(--brown-mid); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500;
+      padding: 6px 12px; border-radius: 6px;
+      transition: color var(--t), background var(--t);
+      white-space: nowrap;
+    }
+    .main-nav a:hover { color: var(--terra); background: rgba(200,103,74,0.08); }
+
+    .nav-cta {
+      background: var(--terra) !important;
+      color: #fff !important;
+      padding: 7px 14px !important;
+      border-radius: 6px !important;
+      font-weight: 500 !important;
+    }
+    .nav-cta:hover { background: var(--terra-dk) !important; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px; background: none; border: none;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--brown); border-radius: 2px; transition: all var(--t);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none; flex-direction: column;
+      background: var(--offwhite);
+      border-top: 1px solid rgba(200,103,74,0.15);
+      padding: 12px 24px 20px; gap: 4px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: var(--brown); text-decoration: none;
+      font-size: 0.95rem; font-weight: 500;
+      padding: 10px 12px; border-radius: 8px;
+      transition: background var(--t), color var(--t);
+    }
+    .mobile-nav a:hover { background: rgba(200,103,74,0.08); color: var(--terra); }
+
+    /* ─── HERO ──────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100svh; min-height: 560px; max-height: 820px;
+      display: flex; align-items: center;
+      overflow: hidden; margin-top: 68px;
+    }
+
+    .hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 30%;
+    }
+
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(58,34,24,0.62) 0%,
+        rgba(90,50,30,0.38) 60%,
+        rgba(200,103,74,0.18) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 32px; color: #fff;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: rgba(200,103,74,0.85); color: #fff;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em;
+      padding: 4px 14px; border-radius: 40px; margin-bottom: 20px;
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+      font-weight: 700; line-height: 1.45; letter-spacing: 0.03em;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp 0.9s 0.4s forwards;
+    }
+
+    .hero-sub {
+      font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+      font-weight: 300; line-height: 1.9;
+      color: rgba(255,255,255,0.88); max-width: 520px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp 0.9s 0.65s forwards;
+    }
+
+    .hero-scroll {
+      position: absolute; bottom: 32px; left: 50%;
+      transform: translateX(-50%); z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.7); font-size: 0.72rem; letter-spacing: 0.12em;
+      opacity: 0; animation: fadeUp 1s 1.2s forwards;
+    }
+    .hero-scroll::after {
+      content: ''; display: block; width: 1px; height: 36px;
+      background: rgba(255,255,255,0.5);
+      animation: scrollLine 1.5s 1.5s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%,100% { opacity: 0.4; }
+      50%     { opacity: 1; }
+    }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* ─── SECTIONS COMMON ───────────────────── */
+    section { padding: 100px 40px; }
+
+    .inner { max-width: 960px; margin: 0 auto; }
+
+    .sec-head { margin-bottom: 60px; }
+
+    .sec-eyebrow {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.26em;
+      text-transform: uppercase; color: var(--terra); margin-bottom: 10px;
+    }
+
+    .sec-title {
+      font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+      font-weight: 700; color: var(--brown);
+      padding-bottom: 18px; position: relative;
+    }
+    .sec-title::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 28px; height: 1px; background: var(--terra);
+    }
+
+    /* fade-in */
+    .fade-in {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity 0.72s ease, transform 0.72s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ─── OVERVIEW ──────────────────────────── */
+    #overview { background: var(--offwhite); }
+
+    .def-list { border-top: 1px solid var(--rule); }
+
+    .def-row {
+      display: grid; grid-template-columns: 160px 1fr;
+      gap: 32px; align-items: start;
+      padding: 22px 0; border-bottom: 1px solid var(--rule);
+    }
+
+    .def-term {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 0.77rem; font-weight: 600; letter-spacing: 0.07em;
+      color: var(--brown-mid); padding-top: 1px;
+    }
+    .def-term svg {
+      width: 14px; height: 14px; stroke: var(--terra);
+      flex-shrink: 0; fill: none;
+      stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6;
+    }
+
+    .def-val {
+      font-size: 0.95rem; color: var(--brown); line-height: 1.85;
+    }
+    .def-val a { color: inherit; text-decoration: none; }
+    .def-val a:hover { color: var(--terra); }
+
+    /* ─── ACCESS ────────────────────────────── */
+    #access { background: var(--sand); }
+
+    .access-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: start;
+    }
+
+    .info-list { border-top: 1px solid var(--rule); }
+
+    .info-row {
+      display: grid; grid-template-columns: 80px 1fr;
+      gap: 16px; align-items: start;
+      padding: 20px 0; border-bottom: 1px solid var(--rule);
+    }
+
+    .info-label {
+      display: flex; align-items: flex-start; gap: 7px;
+      font-size: 0.74rem; font-weight: 700; letter-spacing: 0.07em;
+      color: var(--terra); padding-top: 2px;
+    }
+    .info-label svg {
+      width: 13px; height: 13px; stroke: currentColor;
+      flex-shrink: 0; fill: none;
+      stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6;
+      margin-top: 1px;
+    }
+
+    .info-val { font-size: 0.93rem; line-height: 1.85; color: var(--brown); }
+
+    .map-wrap {
+      border-radius: 3px; overflow: hidden;
+      border: 1px solid var(--rule);
+      box-shadow: var(--shadow-md);
+    }
+    .map-wrap iframe { display: block; width: 100%; height: 400px; border: none; }
+
+    /* ─── DOCUMENT ──────────────────────────── */
+    #document { background: var(--offwhite); }
+
+    .doc-panel {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 48px; padding: 52px 56px;
+      border: 1px solid var(--rule); background: #fff;
+    }
+
+    .doc-text { flex: 1; }
+
+    .doc-caption {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+      color: var(--terra); margin-bottom: 10px;
+    }
+
+    .doc-heading {
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--brown); margin-bottom: 14px;
+    }
+
+    .doc-body {
+      font-size: 0.88rem; color: var(--brown-mid); line-height: 1.95;
+    }
+
+    .btn {
+      flex-shrink: 0; display: inline-flex; align-items: center; gap: 10px;
+      background: var(--terra); color: #fff; text-decoration: none;
+      font-size: 0.86rem; font-weight: 700; letter-spacing: 0.08em;
+      padding: 15px 30px; border-radius: 2px; white-space: nowrap;
+      transition: background var(--t), transform var(--t);
+    }
+    .btn svg {
+      width: 15px; height: 15px; stroke: currentColor; fill: none;
+      stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8;
+    }
+    .btn:hover { background: var(--terra-dk); transform: translateY(-1px); }
+
+    /* ─── FOOTER ────────────────────────────── */
+    footer {
+      background: var(--footer-bg);
+      padding: 60px 40px 36px; text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 1rem; font-weight: 700; letter-spacing: 0.08em;
+      color: #fff; margin-bottom: 6px;
+    }
+    .footer-logo em { color: rgba(200,103,74,0.8); font-style: normal; }
+
+    .footer-company {
+      font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-bottom: 44px;
+    }
+
+    .footer-hr {
+      border: none; border-top: 1px solid rgba(255,255,255,0.07); margin-bottom: 24px;
+    }
+
+    .footer-copy { font-size: 0.73rem; color: rgba(255,255,255,0.25); }
+
+    /* ─── RESPONSIVE ────────────────────────── */
+    @media (max-width: 820px) {
+      .main-nav { display: none; }
+      .hamburger { display: flex; }
+
+      section { padding: 72px 20px; }
+
+      .access-grid { grid-template-columns: 1fr; gap: 40px; }
+      .map-wrap iframe { height: 300px; }
+
+      .doc-panel {
+        flex-direction: column; align-items: flex-start;
+        padding: 36px 28px; gap: 28px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .def-row  { grid-template-columns: 1fr; gap: 6px; }
+      .info-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SVG Sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="ico-building" viewBox="0 0 24 24">
+    <path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-8h6v8"/>
+  </symbol>
+  <symbol id="ico-org" viewBox="0 0 24 24">
+    <rect x="2" y="7" width="20" height="14" rx="1"/>
+    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+    <line x1="12" y1="12" x2="12" y2="16"/>
+    <line x1="10" y1="14" x2="14" y2="14"/>
+  </symbol>
+  <symbol id="ico-map" viewBox="0 0 24 24">
+    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </symbol>
+  <symbol id="ico-phone" viewBox="0 0 24 24">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.21 6.21l1-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+  </symbol>
+  <symbol id="ico-fax" viewBox="0 0 24 24">
+    <polyline points="6 9 6 2 18 2 18 9"/>
+    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+    <rect x="6" y="14" width="12" height="8"/>
+  </symbol>
+  <symbol id="ico-heart" viewBox="0 0 24 24">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+  </symbol>
+  <symbol id="ico-clock" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10"/>
+    <polyline points="12 6 12 12 16 14"/>
+  </symbol>
+  <symbol id="ico-calendar" viewBox="0 0 24 24">
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+    <line x1="16" y1="2" x2="16" y2="6"/>
+    <line x1="8"  y1="2" x2="8"  y2="6"/>
+    <line x1="3"  y1="10" x2="21" y2="10"/>
+  </symbol>
+  <symbol id="ico-bus" viewBox="0 0 24 24">
+    <path d="M8 6v6M15 6v6M2 12h19.6"/>
+    <path d="M18 18h3s1-16-10-16S1 18 4 18h3"/>
+    <circle cx="7"  cy="18" r="2"/>
+    <circle cx="17" cy="18" r="2"/>
+  </symbol>
+  <symbol id="ico-download" viewBox="0 0 24 24">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </symbol>
+</svg>
+
+<!-- ─── HEADER ─────────────────────────────── -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="site-logo">
+      ケアプランセンター<span class="accent">花鈴</span>
+    </a>
+    <nav class="main-nav">
+      <a href="#overview">事業所概要</a>
+      <a href="#access">営業時間・アクセス</a>
+      <a href="#document" class="nav-cta">重要事項説明書</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開閉する" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="#overview"  onclick="closeNav()">事業所概要</a>
+    <a href="#access"    onclick="closeNav()">営業時間・アクセス</a>
+    <a href="#document"  onclick="closeNav()">重要事項説明書</a>
+  </nav>
+</header>
+
+<!-- ─── HERO ────────────────────────────────── -->
+<section class="hero" aria-label="メインビジュアル">
+  <img
+    class="hero-img"
+    src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=1400&auto=format&fit=crop&q=80"
+    alt="自然光の差し込む明るい居室"
+    loading="eager"
+    fetchpriority="high"
+  >
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-label">居宅介護支援 ・ 札幌市北区</span>
+    <h1 class="hero-title">
+      あなたの暮らしに、<br>寄り添うケアプランを。
+    </h1>
+    <p class="hero-sub">
+      ケアプランセンター花鈴は、札幌市北区を中心に<br>
+      利用者様一人ひとりに合った介護サービスをご提案します。
+    </p>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">SCROLL</div>
+</section>
+
+<!-- ─── OVERVIEW ─────────────────────────────── -->
+<section id="overview">
+  <div class="inner">
+    <div class="sec-head fade-in">
+      <p class="sec-eyebrow">About</p>
+      <h2 class="sec-title">事業所概要</h2>
+    </div>
+    <dl class="def-list fade-in">
+
+      <div class="def-row">
+        <dt class="def-term"><svg><use href="#ico-building"/></svg>事業所名</dt>
+        <dd class="def-val">ケアプランセンター花鈴</dd>
+      </div>
+
+      <div class="def-row">
+        <dt class="def-term"><svg><use href="#ico-org"/></svg>運営会社</dt>
+        <dd class="def-val">合同会社ノースアライブ</dd>
+      </div>
+
+      <div class="def-row">
+        <dt class="def-term"><svg><use href="#ico-map"/></svg>所在地</dt>
+        <dd class="def-val">〒001-0910<br>札幌市北区新琴似10条17丁目1番1号<br>和巧ビル2階</dd>
+      </div>
+
+      <div class="def-row">
+        <dt class="def-term"><svg><use href="#ico-phone"/></svg>電話</dt>
+        <dd class="def-val"><a href="tel:0117906513">011-790-6513</a></dd>
+      </div>
+
+      <div class="def-row">
+        <dt class="def-term"><svg><use href="#ico-fax"/></svg>FAX</dt>
+        <dd class="def-val">011-790-6523</dd>
+      </div>
+
+      <div class="def-row">
+        <dt class="def-term"><svg><use href="#ico-heart"/></svg>事業内容</dt>
+        <dd class="def-val">居宅介護支援（ケアプラン作成）</dd>
+      </div>
+
+    </dl>
+  </div>
+</section>
+
+<!-- ─── ACCESS ───────────────────────────────── -->
+<section id="access">
+  <div class="inner">
+    <div class="sec-head fade-in">
+      <p class="sec-eyebrow">Hours &amp; Access</p>
+      <h2 class="sec-title">営業時間・アクセス</h2>
+    </div>
+    <div class="access-grid">
+      <dl class="info-list fade-in">
+
+        <div class="info-row">
+          <dt class="info-label"><svg><use href="#ico-clock"/></svg>営業時間</dt>
+          <dd class="info-val">平日 9:00〜17:00</dd>
+        </div>
+
+        <div class="info-row">
+          <dt class="info-label"><svg><use href="#ico-calendar"/></svg>定休日</dt>
+          <dd class="info-val">土曜・日曜・祝日・年末年始</dd>
+        </div>
+
+        <div class="info-row">
+          <dt class="info-label"><svg><use href="#ico-bus"/></svg>アクセス</dt>
+          <dd class="info-val">中央バス「新琴似10条16丁目」下車<br>徒歩約1分</dd>
+        </div>
+
+        <div class="info-row">
+          <dt class="info-label"><svg><use href="#ico-map"/></svg>住所</dt>
+          <dd class="info-val">〒001-0910<br>札幌市北区新琴似10条17丁目1番1号<br>和巧ビル2階</dd>
+        </div>
+
+      </dl>
+      <div class="map-wrap fade-in">
+        <iframe
+          src="https://maps.google.com/maps?q=札幌市北区新琴似10条17丁目1番1号&output=embed"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="ケアプランセンター花鈴 地図"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DOCUMENT ─────────────────────────────── -->
+<section id="document">
+  <div class="inner">
+    <div class="sec-head fade-in">
+      <p class="sec-eyebrow">Document</p>
+      <h2 class="sec-title">重要事項説明書</h2>
+    </div>
+    <div class="doc-panel fade-in">
+      <div class="doc-text">
+        <p class="doc-caption">ご利用前に必ずご確認ください</p>
+        <h3 class="doc-heading">重要事項説明書（PDF）</h3>
+        <p class="doc-body">
+          当事業所のサービス内容・利用料金・個人情報の取り扱いなど、<br>
+          ご利用にあたって重要な事項をまとめた書類です。<br>
+          ご不明な点はお気軽にお問い合わせください。
+        </p>
+      </div>
+      <a
+        href="https://drive.google.com/file/d/1ru2y5nCvyULLt21CGePVk8YN-Cuq5r2k/view?usp=drive_link"
+        target="_blank" rel="noopener noreferrer"
+        class="btn"
+      >
+        <svg aria-hidden="true"><use href="#ico-download"/></svg>
+        書類を確認する
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────── -->
+<footer>
+  <div class="inner">
+    <p class="footer-logo">ケアプランセンター<em>花鈴</em></p>
+    <p class="footer-company">合同会社ノースアライブ</p>
+    <hr class="footer-hr">
+    <p class="footer-copy">© 合同会社ノースアライブ All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  function closeNav() {
+    mobileNav.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

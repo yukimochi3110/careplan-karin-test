@@ -4,193 +4,136 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>株式会社ブルースカイ | ITコンサルティング</title>
+  <title>ケアプランセンター花鈴 | 札幌市北区の居宅介護支援事業所</title>
+  <meta name="description" content="ケアプランセンター花鈴は、札幌市北区を中心に利用者様一人ひとりに合った介護サービスをご提案します。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* ─── RESET & VARIABLES ──────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue-dark:   #0a2463;
-      --blue-mid:    #1e5baa;
-      --blue-light:  #3a8fe8;
-      --blue-pale:   #e8f2fd;
-      --white:       #ffffff;
-      --gray-light:  #f4f7fb;
-      --gray:        #8a99ad;
-      --text-dark:   #1a2535;
-      --text-mid:    #3d4f63;
-      --shadow-sm:   0 2px 12px rgba(30,91,170,.10);
-      --shadow-md:   0 6px 32px rgba(30,91,170,.15);
-      --shadow-lg:   0 16px 56px rgba(30,91,170,.18);
-      --radius:      12px;
-      --ease:        cubic-bezier(.4,0,.2,1);
+      --sand:       #edf5ee;
+      --terra:      #30803a;
+      --terra-dk:   #236030;
+      --brown:      #1a2e1c;
+      --brown-mid:  #4a6650;
+      --offwhite:   #ffffff;
+      --rule:       rgba(26,46,28,0.09);
+      --footer-bg:  #162818;
+      --shadow-sm:  0 2px 12px rgba(26,46,28,0.07);
+      --shadow-md:  0 4px 24px rgba(26,46,28,0.09);
+      --radius:     12px;
+      --t:          0.25s ease;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Noto Sans JP', 'Inter', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-      color: var(--text-dark);
-      background: var(--white);
-      line-height: 1.7;
-      overflow-x: hidden;
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--sand);
+      color: var(--brown);
+      line-height: 1.8;
+      font-size: 17px;
     }
 
-    /* ─── KEYFRAME ANIMATIONS ────────────────────────────── */
-    @keyframes pulse {
-      0%,100% { opacity: 1; transform: scale(1); }
-      50%      { opacity: .5; transform: scale(1.5); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInLeft {
-      from { opacity: 0; transform: translateX(-40px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(40px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(.88); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-    @keyframes float {
-      0%,100% { transform: translateY(0px); }
-      50%      { transform: translateY(-8px); }
-    }
-    @keyframes shimmer {
-      0%   { background-position: -200% center; }
-      100% { background-position:  200% center; }
-    }
-    @keyframes countUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes barGrow {
-      from { width: 0; }
-      to   { width: var(--bar-w, 100%); }
-    }
-    @keyframes ripple {
-      0%   { transform: scale(1);   opacity: .6; }
-      100% { transform: scale(2.4); opacity: 0;  }
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-    @keyframes wave {
-      0%,100% { d: path("M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z"); }
-      50%      { d: path("M0,40 C200,20 400,80 600,40 C800,20 1000,80 1200,40 L1200,120 L0,120 Z"); }
+    /* ─── HEADER ─────────────────────────────── */
+    body > header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 2px 16px rgba(26,46,28,0.07);
     }
 
-    /* ─── REVEAL SYSTEM ──────────────────────────────────── */
-    /* デフォルトは表示（GitHub Pagesでのフォールバック）*/
-    .reveal {
-      opacity: 1;
-      transform: none;
-      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    /* Brand row */
+    .header-brand {
+      border-bottom: 1px solid var(--rule);
     }
-    /* JSが有効なときのみ非表示にする（.js-readyクラスで制御）*/
-    .js-ready .reveal {
-      opacity: 0;
-      transform: translateY(36px);
-    }
-    .js-ready .reveal.from-left  { transform: translateX(-36px); }
-    .js-ready .reveal.from-right { transform: translateX(36px); }
-    .js-ready .reveal.scale-in   { transform: scale(.9); }
-    .js-ready .reveal.visible {
-      opacity: 1;
-      transform: none;
+    .header-brand-inner {
+      max-width: 1100px; margin: 0 auto; padding: 12px 24px;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
     }
 
-    /* ─── HEADER ─────────────────────────────────────────── */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(30,91,170,.08);
-      transition: box-shadow .3s var(--ease);
-      animation: slideDown .5s var(--ease) both;
+    .site-logo {
+      display: flex; flex-direction: column; gap: 2px;
+      text-decoration: none; flex-shrink: 0;
     }
-    header.scrolled { box-shadow: var(--shadow-sm); }
+    .logo-eyebrow {
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em;
+      color: var(--brown-mid);
+    }
+    .logo-name {
+      font-size: 1.4rem; font-weight: 700; color: var(--brown);
+      letter-spacing: 0.04em; white-space: nowrap;
+    }
+    .logo-name .accent { color: var(--terra); }
 
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .header-contact {
+      display: flex; flex-direction: column; align-items: flex-end; gap: 5px;
+    }
+    .contact-numbers {
+      display: flex; align-items: center; gap: 22px;
+    }
+    .contact-tel {
+      display: flex; align-items: center; gap: 7px;
+      color: var(--terra); text-decoration: none;
+      font-size: 1.35rem; font-weight: 700; letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .contact-tel svg {
+      width: 18px; height: 18px; stroke: currentColor; fill: none;
+      stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8;
+      flex-shrink: 0;
+    }
+    .contact-tel:hover { color: var(--terra-dk); }
+    .contact-fax {
+      display: flex; align-items: center; gap: 6px;
+      color: var(--brown-mid); font-size: 1.05rem; font-weight: 500;
+      white-space: nowrap;
+    }
+    .contact-fax svg {
+      width: 16px; height: 16px; stroke: currentColor; fill: none;
+      stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6;
+      flex-shrink: 0;
+    }
+    .contact-address {
+      font-size: 0.74rem; color: var(--brown-mid); letter-spacing: 0.02em;
     }
 
-    .logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none;
+    /* Nav row */
+    .header-nav {
+      background: var(--terra);
     }
-    .logo-icon {
-      width: 40px; height: 40px;
-      background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      transition: transform .3s var(--ease);
+    .header-nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; height: 42px; gap: 0;
     }
-    .logo:hover .logo-icon { transform: rotate(-8deg) scale(1.06); }
-    .logo-icon svg { width: 22px; height: 22px; fill: white; }
-    .logo-text {
-      font-weight: 700; font-size: 1.1rem;
-      color: var(--blue-dark); letter-spacing: .02em;
+    .header-nav a {
+      color: rgba(255,255,255,0.88); text-decoration: none;
+      font-size: 0.95rem; font-weight: 500; letter-spacing: 0.06em;
+      padding: 0 22px; height: 42px; display: flex; align-items: center;
+      position: relative; white-space: nowrap;
+      transition: color var(--t), background var(--t);
     }
-    .logo-text span {
-      display: block; font-size: .62rem; font-weight: 400;
-      color: var(--gray); letter-spacing: .08em; text-transform: uppercase;
+    .header-nav a::after {
+      content: ''; position: absolute; bottom: 0; left: 22px; right: 22px;
+      height: 2px; background: rgba(255,255,255,0.7);
+      transform: scaleX(0); transition: transform var(--t);
     }
-
-    nav { display: flex; align-items: center; gap: 32px; }
-    nav a {
-      text-decoration: none; font-size: .88rem; font-weight: 500;
-      color: var(--text-mid); letter-spacing: .04em;
-      position: relative; transition: color .3s var(--ease);
-    }
-    nav a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-      height: 2px; background: var(--blue-light);
-      transform: scaleX(0); transition: transform .3s var(--ease);
-    }
-    nav a:hover { color: var(--blue-mid); }
-    nav a:hover::after { transform: scaleX(1); }
-    .nav-cta {
-      background: linear-gradient(135deg, var(--blue-light), var(--blue-mid));
-      color: white !important; padding: 10px 24px; border-radius: 50px;
-      font-size: .85rem !important;
-      box-shadow: 0 4px 16px rgba(58,143,232,.35);
-      transition: transform .3s var(--ease), box-shadow .3s var(--ease) !important;
-    }
-    .nav-cta::after { display: none !important; }
-    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(58,143,232,.50) !important; }
+    .header-nav a:hover { color: #fff; background: rgba(255,255,255,0.10); }
+    .header-nav a:hover::after { transform: scaleX(1); }
 
     /* Hamburger */
     .hamburger {
       display: none; flex-direction: column; gap: 5px;
       cursor: pointer; padding: 6px; background: none; border: none;
+      flex-shrink: 0;
     }
     .hamburger span {
-      display: block; width: 26px; height: 2px;
-      background: var(--blue-dark); border-radius: 2px;
-      transition: .3s var(--ease);
+      display: block; width: 24px; height: 2px;
+      background: var(--brown); border-radius: 2px; transition: all var(--t);
     }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
@@ -198,1029 +141,577 @@
 
     .mobile-nav {
       display: none; flex-direction: column;
-      padding: 12px 0 16px;
-      border-top: 1px solid rgba(30,91,170,.08);
-      background: white;
+      background: var(--offwhite);
+      border-top: 1px solid rgba(48,128,58,0.14);
+      padding: 12px 24px 20px; gap: 4px;
     }
+    .mobile-nav.open { display: flex; }
     .mobile-nav a {
-      display: block; padding: 12px 24px; font-size: .9rem;
-      font-weight: 500; color: var(--text-mid); text-decoration: none;
-      transition: background .3s, color .3s;
+      color: var(--brown); text-decoration: none;
+      font-size: 1rem; font-weight: 500;
+      padding: 12px 12px; border-radius: 8px;
+      transition: background var(--t), color var(--t);
+      border-bottom: 1px solid var(--rule);
     }
-    .mobile-nav a:hover { background: var(--blue-pale); color: var(--blue-mid); }
-    .mobile-nav .nav-cta {
-      margin: 8px 24px 0; text-align: center; border-radius: 50px;
-      color: white !important;
-      background: linear-gradient(135deg, var(--blue-light), var(--blue-mid));
+    .mobile-nav a:last-of-type { border-bottom: none; }
+    .mobile-nav a:hover { background: rgba(48,128,58,0.09); color: var(--terra); }
+    .mobile-nav .mobile-tel {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--terra); font-size: 1.1rem; font-weight: 700;
+      padding: 12px 12px; text-decoration: none;
+      border-top: 2px solid var(--rule); margin-top: 4px;
+    }
+    .mobile-nav .mobile-tel svg {
+      width: 16px; height: 16px; stroke: currentColor; fill: none;
+      stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8;
     }
 
-    /* ─── HERO ───────────────────────────────────────────── */
+    /* ─── HERO ──────────────────────────────── */
     .hero {
-      position: relative; min-height: 100vh;
-      display: flex; align-items: center; overflow: hidden;
+      position: relative;
+      min-height: 480px;
+      display: flex; align-items: center;
+      overflow: hidden;
     }
 
-    .hero-bg {
+    .hero-img {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&auto=format&fit=crop&q=80');
-      background-size: cover; background-position: center;
-      transform: scale(1.05);
-      animation: heroScale 12s ease-in-out infinite alternate;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 40%;
     }
-    @keyframes heroScale {
-      from { transform: scale(1.05); }
-      to   { transform: scale(1.12); }
-    }
+
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(120deg,
-        rgba(10,36,99,.85) 0%,
-        rgba(30,91,170,.70) 55%,
-        rgba(58,143,232,.42) 100%);
-    }
-
-    /* Floating particles */
-    .hero-particles {
-      position: absolute; inset: 0; pointer-events: none; overflow: hidden;
-    }
-    .particle {
-      position: absolute;
-      width: 4px; height: 4px;
-      background: rgba(255,255,255,.25);
-      border-radius: 50%;
-      animation: particleFloat linear infinite;
-    }
-    @keyframes particleFloat {
-      0%   { transform: translateY(100vh) rotate(0deg);   opacity: 0; }
-      10%  { opacity: 1; }
-      90%  { opacity: 1; }
-      100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+      background: linear-gradient(
+        135deg,
+        rgba(22,40,24,0.68) 0%,
+        rgba(35,64,40,0.42) 55%,
+        rgba(48,128,58,0.12) 100%
+      );
     }
 
     .hero-content {
       position: relative; z-index: 1;
-      max-width: 1200px; margin: 0 auto;
-      padding: 140px 24px 80px; width: 100%;
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 32px; color: #fff;
+      margin-bottom: 12%;
     }
 
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,.12);
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,.25);
-      color: white; font-size: .8rem; font-weight: 500;
-      letter-spacing: .1em; text-transform: uppercase;
-      padding: 8px 18px; border-radius: 50px; margin-bottom: 28px;
-      animation: fadeInUp .8s .2s var(--ease) both;
-    }
-    .hero-badge-dot {
-      width: 7px; height: 7px; background: #7dd3fc;
-      border-radius: 50%; position: relative;
-      animation: pulse 2s infinite;
-    }
-    .hero-badge-dot::after {
-      content: '';
-      position: absolute; inset: -4px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(125,211,252,.5);
-      animation: ripple 2s infinite;
+    .hero-title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 700; line-height: 1.5; letter-spacing: 0.03em;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp 0.9s 0.3s forwards;
     }
 
-    .hero h1 {
-      font-size: clamp(2rem, 5.5vw, 4rem);
-      font-weight: 700; color: white; line-height: 1.22;
-      letter-spacing: -.01em; max-width: 720px; margin-bottom: 24px;
-      animation: fadeInUp .8s .4s var(--ease) both;
-    }
-    .hero h1 em {
-      font-style: normal;
-      background: linear-gradient(90deg, #7dd3fc 0%, #bae6fd 50%, #7dd3fc 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 3s linear infinite;
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      font-weight: 300; line-height: 2;
+      color: rgba(255,255,255,0.90); max-width: 560px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp 0.9s 0.55s forwards;
     }
 
-    .hero-desc {
-      font-size: clamp(.95rem, 2vw, 1.12rem);
-      color: rgba(255,255,255,.82); max-width: 520px;
-      margin-bottom: 40px; line-height: 1.85; font-weight: 300;
-      animation: fadeInUp .8s .6s var(--ease) both;
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* ─── SECTIONS COMMON ───────────────────── */
+    section { padding: 100px 40px; scroll-margin-top: 120px; }
+
+    .inner { max-width: 960px; margin: 0 auto; }
+
+    .sec-head { margin-bottom: 60px; }
+
+    .sec-eyebrow {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.26em;
+      text-transform: uppercase; color: var(--terra); margin-bottom: 10px;
     }
 
-    .hero-btns {
-      display: flex; flex-wrap: wrap; gap: 16px;
-      animation: fadeInUp .8s .8s var(--ease) both;
+    .sec-title {
+      font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+      font-weight: 700; color: var(--brown);
+      padding-bottom: 18px; position: relative;
     }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: white; color: var(--blue-dark); font-weight: 700;
-      font-size: .95rem; padding: 16px 32px; border-radius: 50px;
-      text-decoration: none; box-shadow: 0 8px 32px rgba(0,0,0,.2);
-      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
-    }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,.28); }
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(255,255,255,.1);
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      border: 1.5px solid rgba(255,255,255,.4);
-      color: white; font-weight: 500; font-size: .95rem;
-      padding: 16px 32px; border-radius: 50px; text-decoration: none;
-      transition: background .3s, border-color .3s, transform .3s var(--ease);
-    }
-    .btn-ghost:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.65); transform: translateY(-3px); }
-    .btn-primary svg, .btn-ghost svg { transition: transform .3s var(--ease); }
-    .btn-primary:hover svg { transform: translateX(4px); }
-    .btn-ghost:hover svg { transform: translateX(4px); }
-
-    /* Stats row – PC では hero コンテンツの下に自然に流す */
-    .hero-stats {
-      display: flex;
-      flex-wrap: nowrap;
-      background: rgba(255,255,255,.1);
-      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 20px; overflow: hidden;
-      margin-top: 48px;
-      animation: fadeInUp .8s 1s var(--ease) both;
-      width: fit-content;
-      max-width: 100%;
-    }
-    .hero-stat {
-      padding: 20px 36px; text-align: center; color: white;
-      border-right: 1px solid rgba(255,255,255,.15);
-      flex: 1 1 auto;
-      min-width: 100px;
-    }
-    .hero-stat:last-child { border-right: none; }
-    .hero-stat-num {
-      font-size: 2rem; font-weight: 700; line-height: 1; margin-bottom: 4px;
-    }
-    .hero-stat-num .unit { font-size: 1.2rem; }
-    .hero-stat-label { font-size: .78rem; opacity: .75; letter-spacing: .05em; white-space: nowrap; }
-
-    /* ─── SECTION COMMONS ────────────────────────────────── */
-    section { padding: 100px 24px; }
-    .container { max-width: 1200px; margin: 0 auto; }
-
-    .section-tag {
-      display: inline-block; background: var(--blue-pale); color: var(--blue-mid);
-      font-size: .75rem; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; padding: 6px 16px; border-radius: 50px;
-      margin-bottom: 16px;
-    }
-    .section-title {
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700;
-      color: var(--blue-dark); line-height: 1.3; margin-bottom: 16px;
-    }
-    .section-desc {
-      font-size: 1rem; color: var(--text-mid); max-width: 540px;
-      line-height: 1.8; font-weight: 300;
-    }
-    .section-header { margin-bottom: 56px; }
-
-    /* ─── SERVICES ───────────────────────────────────────── */
-    #services { background: var(--gray-light); }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 28px;
+    .sec-title::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 28px; height: 1px; background: var(--terra);
     }
 
-    .service-card {
-      background: white; border-radius: var(--radius);
-      overflow: hidden; box-shadow: var(--shadow-sm);
-      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
-      will-change: transform;
+    /* fade-in */
+    .fade-in {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity 0.72s ease, transform 0.72s ease;
     }
-    .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
-    .service-card:hover .service-img { transform: scale(1.06); }
+    .fade-in.visible { opacity: 1; transform: none; }
 
-    .service-img {
-      width: 100%; height: 200px; object-fit: cover; display: block;
-      transition: transform .6s var(--ease);
-    }
-    .service-body { padding: 28px; }
+    /* ─── OVERVIEW ──────────────────────────── */
+    #overview { background: var(--offwhite); }
 
-    .service-icon {
-      width: 48px; height: 48px; background: var(--blue-pale);
-      border-radius: 12px; display: flex; align-items: center; justify-content: center;
-      margin-bottom: 16px;
-      transition: background .3s, transform .3s var(--ease);
-    }
-    .service-card:hover .service-icon { background: var(--blue-mid); transform: scale(1.1) rotate(5deg); }
-    .service-icon svg { width: 24px; height: 24px; stroke: var(--blue-mid); fill: none; stroke-width: 1.8; transition: stroke .3s; }
-    .service-card:hover .service-icon svg { stroke: white; }
+    .def-list { border-top: 1px solid var(--rule); }
 
-    .service-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 10px; }
-    .service-card p  { font-size: .9rem; color: var(--text-mid); line-height: 1.7; font-weight: 300; }
+    .def-row {
+      display: grid; grid-template-columns: 180px 1fr;
+      gap: 32px; align-items: start;
+      padding: 22px 0; border-bottom: 1px solid var(--rule);
+    }
 
-    .service-link {
-      display: inline-flex; align-items: center; gap: 6px; margin-top: 20px;
-      font-size: .85rem; font-weight: 600; color: var(--blue-mid);
-      text-decoration: none; transition: gap .3s var(--ease), color .3s;
+    .def-term {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 0.92rem; font-weight: 600; letter-spacing: 0.04em;
+      color: var(--brown-mid); padding-top: 1px;
     }
-    .service-link:hover { gap: 12px; color: var(--blue-light); }
-    .service-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .def-term svg {
+      width: 17px; height: 17px; stroke: var(--terra);
+      flex-shrink: 0; fill: none;
+      stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6;
+    }
 
-    /* ─── FEATURES STRIP ─────────────────────────────────── */
-    .features {
-      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 100%);
-      padding: 80px 24px; position: relative; overflow: hidden;
+    .def-val {
+      font-size: 1rem; color: var(--brown); line-height: 1.85;
     }
-    .features::before {
-      content: '';
-      position: absolute; top: -60px; left: -60px;
-      width: 320px; height: 320px;
-      background: rgba(255,255,255,.04);
-      border-radius: 50%;
-    }
-    .features::after {
-      content: '';
-      position: absolute; bottom: -80px; right: -40px;
-      width: 400px; height: 400px;
-      background: rgba(255,255,255,.03);
-      border-radius: 50%;
-    }
-    .features-grid {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 40px; position: relative; z-index: 1;
-    }
-    .feature-item { text-align: center; color: white; }
-    .feature-icon-wrap {
-      width: 64px; height: 64px;
-      background: rgba(255,255,255,.12);
-      border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px;
-      transition: background .3s, transform .3s var(--ease);
-    }
-    .feature-item:hover .feature-icon-wrap { background: rgba(255,255,255,.22); transform: translateY(-4px) scale(1.05); }
-    .feature-icon-wrap svg { width: 32px; height: 32px; stroke: white; fill: none; stroke-width: 1.6; }
-    .feature-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-    .feature-item p  { font-size: .85rem; opacity: .75; font-weight: 300; line-height: 1.6; }
+    .def-val a { color: inherit; text-decoration: none; }
+    .def-val a:hover { color: var(--terra); }
 
-    /* ─── ABOUT ──────────────────────────────────────────── */
-    #about { background: white; }
+    /* ─── ACCESS ────────────────────────────── */
+    #access { background: #f5f3eb; }
 
-    .about-grid {
+    .access-grid {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
+      gap: 64px; align-items: start;
     }
 
-    .about-img-wrap {
-      position: relative; border-radius: 20px; overflow: hidden;
-      box-shadow: var(--shadow-lg);
+    .info-list { border-top: 1px solid var(--rule); }
+
+    .info-row {
+      display: grid; grid-template-columns: 96px 1fr;
+      gap: 16px; align-items: start;
+      padding: 20px 0; border-bottom: 1px solid var(--rule);
     }
-    .about-img-wrap img {
-      width: 100%; height: 480px; object-fit: cover; display: block;
-      transition: transform .6s var(--ease);
+
+    .info-label {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 0.9rem; font-weight: 700; letter-spacing: 0.04em;
+      color: var(--brown-mid);
     }
-    .about-img-wrap:hover img { transform: scale(1.04); }
-    .about-img-badge {
-      position: absolute; bottom: 28px; left: 28px;
-      background: white; border-radius: 14px; padding: 16px 24px;
+    .info-label svg {
+      width: 16px; height: 16px; stroke: var(--terra);
+      flex-shrink: 0; fill: none;
+      stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6;
+    }
+
+    .info-val { font-size: 1rem; line-height: 1.85; color: var(--brown); }
+
+    .map-wrap {
+      border-radius: 3px; overflow: hidden;
+      border: 1px solid var(--rule);
       box-shadow: var(--shadow-md);
     }
-    .about-img-badge strong {
-      display: block; font-size: 1.8rem; font-weight: 700;
-      color: var(--blue-dark); line-height: 1;
-    }
-    .about-img-badge span { font-size: .8rem; color: var(--gray); }
+    .map-wrap iframe { display: block; width: 100%; height: 400px; border: none; }
 
-    .about-table {
-      width: 100%; border-collapse: collapse; margin-top: 36px;
-    }
-    .about-table tr { border-bottom: 1px solid rgba(30,91,170,.08); }
-    .about-table tr:first-child { border-top: 1px solid rgba(30,91,170,.08); }
-    .about-table th {
-      padding: 16px 0; font-size: .82rem; font-weight: 700; color: var(--blue-mid);
-      text-align: left; letter-spacing: .04em; width: 36%; vertical-align: top;
-    }
-    .about-table td {
-      padding: 16px 0 16px 16px; font-size: .9rem; color: var(--text-mid);
-      font-weight: 300; line-height: 1.7;
+    /* ─── DOCUMENT ──────────────────────────── */
+    #document { background: #fdfcf9; }
+
+    .doc-grid {
+      display: grid; grid-template-columns: 1fr; gap: 20px;
     }
 
-    /* ─── CONTACT ────────────────────────────────────────── */
-    #contact { background: var(--gray-light); }
+    .doc-panel {
+      display: flex; flex-direction: row; align-items: center;
+      gap: 28px; padding: 36px 40px;
+      border: 1px solid var(--rule); background: #fff;
+    }
+    .doc-panel .btn { margin-left: auto; flex-shrink: 0; }
 
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1.5fr;
-      gap: 60px; align-items: start;
+    .doc-icon {
+      width: 44px; height: 44px;
+      background: rgba(48,128,58,0.08); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
     }
-    .contact-info h3 { font-size: 1.4rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 16px; }
-    .contact-info p  { font-size: .9rem; color: var(--text-mid); line-height: 1.8; font-weight: 300; margin-bottom: 32px; }
+    .doc-icon svg {
+      width: 22px; height: 22px; stroke: var(--terra); fill: none;
+      stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6;
+    }
 
-    .contact-detail { display: flex; flex-direction: column; gap: 16px; }
-    .contact-item {
-      display: flex; align-items: center; gap: 14px;
-      padding: 16px 20px; background: white; border-radius: 12px;
-      box-shadow: var(--shadow-sm);
-      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    .doc-heading {
+      font-size: 1.15rem; font-weight: 700; color: var(--brown);
     }
-    .contact-item:hover { transform: translateX(4px); box-shadow: var(--shadow-md); }
-    .contact-item-icon {
-      width: 40px; height: 40px; background: var(--blue-pale);
-      border-radius: 10px; display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .contact-item-icon svg { width: 20px; height: 20px; stroke: var(--blue-mid); fill: none; stroke-width: 1.8; }
-    .contact-item-text strong {
-      display: block; font-size: .75rem; font-weight: 700; color: var(--gray);
-      letter-spacing: .08em; text-transform: uppercase; margin-bottom: 2px;
-    }
-    .contact-item-text span { font-size: .92rem; color: var(--text-dark); font-weight: 500; }
 
-    /* Form */
-    .contact-form {
-      background: white; border-radius: 20px; padding: 40px;
-      box-shadow: var(--shadow-md);
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--terra); color: #fff; text-decoration: none;
+      font-size: 0.9rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 14px 28px; border-radius: 2px; white-space: nowrap;
+      transition: background var(--t), transform var(--t);
     }
-    .form-group { margin-bottom: 20px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-group label {
-      display: block; font-size: .8rem; font-weight: 700; color: var(--blue-dark);
-      letter-spacing: .04em; margin-bottom: 8px;
+    .btn svg {
+      width: 16px; height: 16px; stroke: currentColor; fill: none;
+      stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8;
     }
-    .form-group label .req { color: var(--blue-light); margin-left: 4px; }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%; padding: 13px 16px;
-      border: 1.5px solid rgba(30,91,170,.15); border-radius: 10px;
-      font-family: inherit; font-size: .9rem; color: var(--text-dark);
-      background: var(--gray-light);
-      transition: border-color .3s, background .3s, box-shadow .3s;
-      outline: none; appearance: none;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--blue-light);
-      background: white;
-      box-shadow: 0 0 0 3px rgba(58,143,232,.12);
-    }
-    .form-group textarea { height: 130px; resize: vertical; }
-    .form-group select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a99ad' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 14px center;
-      padding-right: 40px; cursor: pointer;
-    }
-    .form-submit {
-      width: 100%; padding: 16px;
-      background: linear-gradient(135deg, var(--blue-light), var(--blue-mid));
-      color: white; font-family: inherit; font-size: 1rem; font-weight: 700;
-      border: none; border-radius: 50px; cursor: pointer; letter-spacing: .04em;
-      box-shadow: 0 8px 24px rgba(58,143,232,.35);
-      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
-      margin-top: 8px;
-    }
-    .form-submit:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(58,143,232,.48); }
+    .btn:hover { background: var(--terra-dk); transform: translateY(-1px); }
 
-    /* ─── FOOTER ─────────────────────────────────────────── */
-    footer { background: var(--blue-dark); color: white; padding: 64px 24px 32px; }
-    .footer-inner { max-width: 1200px; margin: 0 auto; }
-    .footer-top {
-      display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
-      gap: 48px; padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,.1); margin-bottom: 36px;
+    /* ─── FOOTER ────────────────────────────── */
+    footer {
+      background: var(--footer-bg);
+      padding: 60px 40px 36px; text-align: center;
     }
-    .footer-brand .logo-text { color: white; }
-    .footer-brand .logo-text span { color: rgba(255,255,255,.5); }
-    .footer-brand p { font-size: .85rem; opacity: .65; line-height: 1.8; font-weight: 300; margin-top: 16px; }
 
-    .footer-col h5 {
-      font-size: .78rem; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; opacity: .5; margin-bottom: 18px;
+    .footer-logo {
+      font-size: 1rem; font-weight: 700; letter-spacing: 0.08em;
+      color: #fff; margin-bottom: 6px;
     }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul li a {
-      text-decoration: none; color: rgba(255,255,255,.7);
-      font-size: .88rem; font-weight: 300; transition: color .3s, transform .3s;
-      display: inline-block;
-    }
-    .footer-col ul li a:hover { color: white; transform: translateX(4px); }
+    .footer-logo em { color: rgba(48,128,58,0.88); font-style: normal; }
 
-    .footer-bottom {
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 16px;
+    .footer-company {
+      font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-bottom: 44px;
     }
-    .footer-bottom p { font-size: .82rem; opacity: .45; }
-    .footer-socials { display: flex; gap: 12px; }
-    .social-link {
-      width: 36px; height: 36px; background: rgba(255,255,255,.08);
-      border-radius: 8px; display: flex; align-items: center; justify-content: center;
-      text-decoration: none; transition: background .3s, transform .3s var(--ease);
-    }
-    .social-link:hover { background: rgba(255,255,255,.2); transform: translateY(-3px); }
-    .social-link svg { width: 16px; height: 16px; fill: rgba(255,255,255,.7); }
 
-    /* ─── SCROLL TOP ─────────────────────────────────────── */
-    .scroll-top {
-      position: fixed; bottom: 32px; right: 32px;
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, var(--blue-light), var(--blue-mid));
-      border-radius: 14px; display: flex; align-items: center; justify-content: center;
-      cursor: pointer; box-shadow: var(--shadow-md);
-      opacity: 0; transform: translateY(16px);
-      transition: opacity .3s var(--ease), transform .3s var(--ease);
-      z-index: 999; border: none;
+    .footer-hr {
+      border: none; border-top: 1px solid rgba(255,255,255,0.07); margin-bottom: 24px;
     }
-    .scroll-top.visible { opacity: 1; transform: translateY(0); }
-    .scroll-top:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .scroll-top svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2.5; }
 
-    /* ─── RESPONSIVE ─────────────────────────────────────── */
-    @media (max-width: 1024px) {
-      .hero-stat { padding: 18px 24px; }
-    }
+    .footer-copy { font-size: 0.73rem; color: rgba(255,255,255,0.25); }
+
+    /* ─── RESPONSIVE ────────────────────────── */
     @media (max-width: 900px) {
-      .about-grid { grid-template-columns: 1fr; gap: 48px; }
-      .about-img-wrap img { height: 320px; }
-      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .header-contact { display: none; }
     }
-    @media (max-width: 700px) {
-      nav { display: none; }
+
+    @media (max-width: 820px) {
+      .header-nav { display: none; }
       .hamburger { display: flex; }
-      .mobile-nav.open { display: flex; }
+
       section { padding: 72px 20px; }
-      .hero-stats {
-        flex-wrap: wrap; justify-content: center; width: 100%;
+      .hero-sub br { display: none; }
+      .hero-sub {
+        font-size: clamp(1.05rem, 4vw, 1.2rem);
+        font-weight: 500;
+        text-shadow: 0 2px 12px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4);
       }
-      .hero-stat {
-        padding: 16px 20px; flex: 1 1 45%;
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,.15);
-      }
-      .hero-stat:nth-last-child(-n+2) { border-bottom: none; }
-      .form-row { grid-template-columns: 1fr; }
-      .contact-form { padding: 28px 20px; }
-      .footer-top { grid-template-columns: 1fr; gap: 28px; }
-      .footer-bottom { flex-direction: column; text-align: center; }
+
+      .access-grid { grid-template-columns: 1fr; gap: 40px; }
+      .map-wrap iframe { height: 300px; }
+
+      .doc-grid { grid-template-columns: 1fr; }
+      .doc-panel { flex-direction: column; align-items: flex-start; padding: 28px 24px; gap: 16px; }
+      .doc-panel .btn { margin-left: 0; }
     }
-    @media (max-width: 500px) {
-      .hero h1 { font-size: 1.85rem; }
-      .hero-btns { flex-direction: column; }
-      .btn-primary, .btn-ghost { justify-content: center; }
-      .hero-stat { flex: 1 1 100%; border-bottom: 1px solid rgba(255,255,255,.15); }
-      .hero-stat:last-child { border-bottom: none; }
+
+    @media (max-width: 560px) {
+      .def-row  { grid-template-columns: 1fr; gap: 6px; }
+      .info-row { grid-template-columns: 1fr; gap: 4px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ─── HEADER ─── -->
-<header id="header">
-  <div class="header-inner">
-    <a href="#" class="logo">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24"><path d="M2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10S2 17.52 2 12zm4.5 0c0 3.03 2.47 5.5 5.5 5.5s5.5-2.47 5.5-5.5S15.03 6.5 12 6.5 6.5 8.97 6.5 12z"/></svg>
+<!-- SVG Sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="ico-building" viewBox="0 0 24 24">
+    <path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-8h6v8"/>
+  </symbol>
+  <symbol id="ico-org" viewBox="0 0 24 24">
+    <rect x="2" y="7" width="20" height="14" rx="1"/>
+    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+    <line x1="12" y1="12" x2="12" y2="16"/>
+    <line x1="10" y1="14" x2="14" y2="14"/>
+  </symbol>
+  <symbol id="ico-map" viewBox="0 0 24 24">
+    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </symbol>
+  <symbol id="ico-area" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    <path d="M2 12h20"/>
+  </symbol>
+  <symbol id="ico-phone" viewBox="0 0 24 24">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.21 6.21l1-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+  </symbol>
+  <symbol id="ico-fax" viewBox="0 0 24 24">
+    <polyline points="6 9 6 2 18 2 18 9"/>
+    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+    <rect x="6" y="14" width="12" height="8"/>
+  </symbol>
+  <symbol id="ico-heart" viewBox="0 0 24 24">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+  </symbol>
+  <symbol id="ico-clock" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10"/>
+    <polyline points="12 6 12 12 16 14"/>
+  </symbol>
+  <symbol id="ico-calendar" viewBox="0 0 24 24">
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+    <line x1="16" y1="2" x2="16" y2="6"/>
+    <line x1="8"  y1="2" x2="8"  y2="6"/>
+    <line x1="3"  y1="10" x2="21" y2="10"/>
+  </symbol>
+  <symbol id="ico-bus" viewBox="0 0 24 24">
+    <path d="M8 6v6M15 6v6M2 12h19.6"/>
+    <path d="M18 18h3s1-16-10-16S1 18 4 18h3"/>
+    <circle cx="7"  cy="18" r="2"/>
+    <circle cx="17" cy="18" r="2"/>
+  </symbol>
+  <symbol id="ico-download" viewBox="0 0 24 24">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </symbol>
+  <symbol id="ico-file" viewBox="0 0 24 24">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+    <polyline points="14 2 14 8 20 8"/>
+    <line x1="16" y1="13" x2="8" y2="13"/>
+    <line x1="16" y1="17" x2="8" y2="17"/>
+    <polyline points="10 9 9 9 8 9"/>
+  </symbol>
+</svg>
+
+<!-- ─── HEADER ─────────────────────────────── -->
+<header>
+  <!-- Brand row -->
+  <div class="header-brand">
+    <div class="header-brand-inner">
+      <a href="#" class="site-logo">
+        <span class="logo-eyebrow">居宅介護支援事業所</span>
+        <span class="logo-name">ケアプランセンター<span class="accent">花鈴</span></span>
+      </a>
+      <div class="header-contact">
+        <div class="contact-numbers">
+          <a href="tel:0117906513" class="contact-tel">
+            <svg aria-hidden="true"><use href="#ico-phone"/></svg>
+            011-790-6513
+          </a>
+          <span class="contact-fax">
+            <svg aria-hidden="true"><use href="#ico-fax"/></svg>
+            FAX 011-790-6523
+          </span>
+        </div>
+        <p class="contact-address">〒001-0910 札幌市北区新琴似10条17丁目1番1号 和巧ビル2階</p>
       </div>
-      <div class="logo-text">
-        株式会社ブルースカイ
-        <span>Blue Sky Co., Ltd.</span>
-      </div>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開閉する" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <!-- Nav row -->
+  <nav class="header-nav" aria-label="メインナビゲーション">
+    <div class="header-nav-inner">
+      <a href="#overview">事業所概要</a>
+      <a href="#access">営業時間・アクセス</a>
+      <a href="#document">重要事項説明書</a>
+    </div>
+  </nav>
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="#overview"  onclick="closeNav()">事業所概要</a>
+    <a href="#access"    onclick="closeNav()">営業時間・アクセス</a>
+    <a href="#document"  onclick="closeNav()">重要事項説明書</a>
+    <a href="tel:0117906513" class="mobile-tel">
+      <svg aria-hidden="true"><use href="#ico-phone"/></svg>
+      011-790-6513
     </a>
-
-    <nav>
-      <a href="#services">サービス</a>
-      <a href="#about">会社概要</a>
-      <a href="#contact">お問い合わせ</a>
-      <a href="#contact" class="nav-cta">無料相談</a>
-    </nav>
-
-    <button class="hamburger" id="hamburger" aria-label="メニュー">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="mobile-nav" id="mobile-nav">
-    <a href="#services" onclick="closeMobileNav()">サービス</a>
-    <a href="#about"    onclick="closeMobileNav()">会社概要</a>
-    <a href="#contact"  onclick="closeMobileNav()">お問い合わせ</a>
-    <a href="#contact"  class="nav-cta" onclick="closeMobileNav()">無料相談</a>
-  </div>
+  </nav>
 </header>
 
-<!-- ─── HERO ─── -->
-<section class="hero" id="home">
-  <div class="hero-bg"></div>
+<!-- ─── HERO ────────────────────────────────── -->
+<section class="hero" aria-label="メインビジュアル">
+  <img
+    class="hero-img"
+    src="hero-bg.jpg"
+    alt="札幌の住宅街と自然の広がる風景"
+    loading="eager"
+    fetchpriority="high"
+  >
   <div class="hero-overlay"></div>
-
-  <!-- Floating particles -->
-  <div class="hero-particles" id="heroParticles"></div>
-
   <div class="hero-content">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      ITコンサルティング &amp; デジタル変革
-    </div>
-
-    <h1>
-      未来のビジネスを、<br>
-      <em>テクノロジー</em>で<br>
-      切り拓く。
+    <h1 class="hero-title">
+      暮らしのお悩みを解決できる<br>ケアプランを目指して
     </h1>
-
-    <p class="hero-desc">
-      株式会社ブルースカイは、企業のデジタルトランスフォーメーションを
-      戦略立案からシステム導入・運用まで、一気通貫でご支援する
-      ITコンサルティングファームです。
+    <p class="hero-sub">
+      ケアプランセンター花鈴は、利用者様の心地よさと、<br>
+      支援者様の安心を考え、あなたの介護サービスをご提案します。
     </p>
+  </div>
+</section>
 
-    <div class="hero-btns">
-      <a href="#services" class="btn-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-        サービスを見る
-      </a>
-      <a href="#contact" class="btn-ghost">
-        無料相談を申し込む
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-      </a>
+<!-- ─── OVERVIEW ─────────────────────────────── -->
+<section id="overview">
+  <div class="inner">
+    <div class="sec-head fade-in">
+      <p class="sec-eyebrow">About</p>
+      <h2 class="sec-title">事業所概要</h2>
     </div>
+    <dl class="def-list fade-in">
 
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num"><span class="count" data-target="250">0</span><span class="unit">+</span></div>
-        <div class="hero-stat-label">支援企業数</div>
+      <div class="def-row">
+        <dt class="def-term"><svg><use href="#ico-building"/></svg>事業所名</dt>
+        <dd class="def-val">ケアプランセンター花鈴</dd>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num"><span class="count" data-target="15">0</span><span class="unit">年</span></div>
-        <div class="hero-stat-label">業界経験</div>
+
+      <div class="def-row">
+        <dt class="def-term"><svg><use href="#ico-org"/></svg>運営会社</dt>
+        <dd class="def-val">合同会社ノースアライブ</dd>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num"><span class="count" data-target="98">0</span><span class="unit">%</span></div>
-        <div class="hero-stat-label">顧客満足度</div>
+
+      <div class="def-row">
+        <dt class="def-term"><svg><use href="#ico-map"/></svg>所在地</dt>
+        <dd class="def-val">〒001-0910<br>札幌市北区新琴似10条17丁目1番1号<br>和巧ビル2階</dd>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num"><span class="count" data-target="50">0</span><span class="unit">+</span></div>
-        <div class="hero-stat-label">専門コンサルタント</div>
+
+      <div class="def-row">
+        <dt class="def-term"><svg><use href="#ico-phone"/></svg>電話</dt>
+        <dd class="def-val"><a href="tel:0117906513">011-790-6513</a></dd>
+      </div>
+
+      <div class="def-row">
+        <dt class="def-term"><svg><use href="#ico-fax"/></svg>FAX</dt>
+        <dd class="def-val">011-790-6523</dd>
+      </div>
+
+      <div class="def-row">
+        <dt class="def-term"><svg><use href="#ico-heart"/></svg>事業内容</dt>
+        <dd class="def-val">居宅介護支援</dd>
+      </div>
+
+      <div class="def-row">
+        <dt class="def-term"><svg><use href="#ico-area"/></svg>サービス提供地域</dt>
+        <dd class="def-val">札幌市全域（厚別区応相談）、石狩市、当別町、小樽市（応相談）</dd>
+      </div>
+
+    </dl>
+  </div>
+</section>
+
+<!-- ─── ACCESS ───────────────────────────────── -->
+<section id="access">
+  <div class="inner">
+    <div class="sec-head fade-in">
+      <p class="sec-eyebrow">Hours &amp; Access</p>
+      <h2 class="sec-title">営業時間・アクセス</h2>
+    </div>
+    <div class="access-grid">
+      <dl class="info-list fade-in">
+
+        <div class="info-row">
+          <dt class="info-label"><svg><use href="#ico-clock"/></svg>営業時間</dt>
+          <dd class="info-val">平日 9:00〜17:00</dd>
+        </div>
+
+        <div class="info-row">
+          <dt class="info-label"><svg><use href="#ico-calendar"/></svg>定休日</dt>
+          <dd class="info-val">土曜・日曜・祝日・年末年始</dd>
+        </div>
+
+        <div class="info-row">
+          <dt class="info-label"><svg><use href="#ico-bus"/></svg>アクセス</dt>
+          <dd class="info-val">中央バス「新琴似10条16丁目」下車<br>徒歩約1分</dd>
+        </div>
+
+        <div class="info-row">
+          <dt class="info-label"><svg><use href="#ico-map"/></svg>住所</dt>
+          <dd class="info-val">〒001-0910<br>札幌市北区新琴似10条17丁目1番1号<br>和巧ビル2階</dd>
+        </div>
+
+      </dl>
+      <div class="map-wrap fade-in">
+        <iframe
+          src="https://maps.google.com/maps?q=ケアプランセンター花鈴+札幌市北区新琴似10条17丁目&output=embed&hl=ja&z=17"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="ケアプランセンター花鈴 地図"
+        ></iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── SERVICES ─── -->
-<section id="services">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-tag">Services</span>
-      <h2 class="section-title">私たちのサービス</h2>
-      <p class="section-desc">お客様の課題に合わせた多彩なITコンサルティングサービスをご提供します。</p>
+<!-- ─── DOCUMENT ─────────────────────────────── -->
+<section id="document">
+  <div class="inner">
+    <div class="sec-head fade-in">
+      <p class="sec-eyebrow">Document</p>
+      <h2 class="sec-title">重要事項説明書</h2>
     </div>
-    <div class="services-grid">
+    <div class="doc-grid">
 
-      <div class="service-card reveal">
-        <img class="service-img"
-          src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&auto=format&fit=crop&q=80"
-          alt="DX戦略コンサルティング" loading="lazy">
-        <div class="service-body">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
-          <h3>DX戦略コンサルティング</h3>
-          <p>経営層とともにデジタル変革の全体像を設計し、ロードマップの策定から推進体制の構築まで伴走支援します。</p>
-          <a href="#contact" class="service-link">詳しく見る <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <div class="doc-panel fade-in">
+        <div class="doc-icon">
+          <svg aria-hidden="true"><use href="#ico-file"/></svg>
         </div>
+        <h3 class="doc-heading">重要事項説明書（PDF）</h3>
+        <a href="important.pdf" target="_blank" rel="noopener noreferrer" class="btn">
+          <svg aria-hidden="true"><use href="#ico-download"/></svg>
+          書類を確認する
+        </a>
       </div>
 
-      <div class="service-card reveal">
-        <img class="service-img"
-          src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80"
-          alt="システム開発・導入" loading="lazy">
-        <div class="service-body">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <h3>システム開発・導入支援</h3>
-          <p>業務要件の整理から要件定義、システム開発、品質保証、リリース後の安定運用まで一括してサポートします。</p>
-          <a href="#contact" class="service-link">詳しく見る <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <div class="doc-panel fade-in">
+        <div class="doc-icon">
+          <svg aria-hidden="true"><use href="#ico-file"/></svg>
         </div>
-      </div>
-
-      <div class="service-card reveal">
-        <img class="service-img"
-          src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&auto=format&fit=crop&q=80"
-          alt="データ活用・AI導入" loading="lazy">
-        <div class="service-body">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-          </div>
-          <h3>データ活用・AI導入</h3>
-          <p>データ基盤の構築から分析・可視化、機械学習・生成AI活用まで、データドリブンな経営を実現します。</p>
-          <a href="#contact" class="service-link">詳しく見る <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-
-      <div class="service-card reveal">
-        <img class="service-img"
-          src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&auto=format&fit=crop&q=80"
-          alt="クラウド移行" loading="lazy">
-        <div class="service-body">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-          </div>
-          <h3>クラウド移行・最適化</h3>
-          <p>オンプレミス環境からクラウドへのマイグレーションを安全・迅速に実現し、コスト最適化と可用性向上を支援します。</p>
-          <a href="#contact" class="service-link">詳しく見る <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-
-      <div class="service-card reveal">
-        <img class="service-img"
-          src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&auto=format&fit=crop&q=80"
-          alt="サイバーセキュリティ" loading="lazy">
-        <div class="service-body">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>サイバーセキュリティ対策</h3>
-          <p>リスクアセスメントからセキュリティポリシー策定、インシデント対応まで、企業の情報資産を守ります。</p>
-          <a href="#contact" class="service-link">詳しく見る <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-
-      <div class="service-card reveal">
-        <img class="service-img"
-          src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop&q=80"
-          alt="IT人材育成" loading="lazy">
-        <div class="service-body">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3>IT人材育成・組織変革</h3>
-          <p>DXを内製化する人材を育成するカリキュラム設計から研修実施、アジャイル組織への変革まで幅広く支援します。</p>
-          <a href="#contact" class="service-link">詳しく見る <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+        <h3 class="doc-heading">個人情報使用同意書（PDF）</h3>
+        <a href="consent.pdf" target="_blank" rel="noopener noreferrer" class="btn">
+          <svg aria-hidden="true"><use href="#ico-download"/></svg>
+          書類を確認する
+        </a>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ─── FEATURES STRIP ─── -->
-<div class="features">
-  <div class="features-grid">
-    <div class="feature-item reveal">
-      <div class="feature-icon-wrap">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-      </div>
-      <h4>スピーディな対応</h4>
-      <p>初回ご相談から最短3営業日でご提案。迅速なレスポンスで機会損失を防ぎます。</p>
-    </div>
-    <div class="feature-item reveal">
-      <div class="feature-icon-wrap">
-        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      </div>
-      <h4>実績ある方法論</h4>
-      <p>250社以上の支援実績から体系化した独自フレームワークで確実な成果を実現します。</p>
-    </div>
-    <div class="feature-item reveal">
-      <div class="feature-icon-wrap">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </div>
-      <h4>安心のセキュリティ</h4>
-      <p>ISO 27001認証取得。お客様の大切な情報を最高水準のセキュリティで守ります。</p>
-    </div>
-    <div class="feature-item reveal">
-      <div class="feature-icon-wrap">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      </div>
-      <h4>専門家チーム</h4>
-      <p>業界平均15年以上の経験を持つコンサルタントが、お客様専任チームを編成します。</p>
-    </div>
-  </div>
-</div>
-
-<!-- ─── ABOUT ─── -->
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-img-wrap reveal from-left">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&auto=format&fit=crop&q=80"
-             alt="株式会社ブルースカイ オフィス" loading="lazy">
-        <div class="about-img-badge">
-          <strong>2010</strong>
-          <span>年設立</span>
-        </div>
-      </div>
-      <div class="about-content reveal from-right">
-        <span class="section-tag">About Us</span>
-        <h2 class="section-title">会社概要</h2>
-        <p class="section-desc">
-          「テクノロジーで日本のビジネスを変える」というミッションのもと、ITコンサルティングのプロフェッショナル集団として、お客様のデジタル変革を全力でご支援しています。
-        </p>
-        <table class="about-table">
-          <tr><th>会社名</th><td>株式会社ブルースカイ</td></tr>
-          <tr><th>設立</th><td>2010年4月1日</td></tr>
-          <tr><th>資本金</th><td>5,000万円</td></tr>
-          <tr><th>代表取締役</th><td>山田 蒼太</td></tr>
-          <tr><th>従業員数</th><td>120名（2026年3月現在）</td></tr>
-          <tr><th>所在地</th><td>〒100-0005<br>東京都千代田区丸の内1-1-1<br>ブルースカイビル 15F</td></tr>
-          <tr><th>事業内容</th><td>ITコンサルティング、システム開発・導入支援、<br>デジタルトランスフォーメーション推進、<br>データ活用・AI導入支援</td></tr>
-          <tr><th>認証・資格</th><td>ISO 27001認証取得 / プライバシーマーク取得</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CONTACT ─── -->
-<section id="contact">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-tag">Contact</span>
-      <h2 class="section-title">お問い合わせ</h2>
-      <p class="section-desc">ご相談・ご質問はお気軽にお寄せください。専門のコンサルタントが丁寧にご対応いたします。</p>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <h3>まずはお気軽に<br>ご相談ください</h3>
-        <p>初回相談は無料です。お客様の課題や目標をお聞きし、最適なソリューションをご提案します。</p>
-        <div class="contact-detail">
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.12 6.12l.95-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.92 16.92z"/></svg>
-            </div>
-            <div class="contact-item-text">
-              <strong>電話番号</strong><span>03-1234-5678</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div class="contact-item-text">
-              <strong>メールアドレス</strong><span>info@bluesky.co.jp</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div class="contact-item-text">
-              <strong>所在地</strong><span>東京都千代田区丸の内1-1-1</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-            </div>
-            <div class="contact-item-text">
-              <strong>受付時間</strong><span>平日 9:00〜18:00</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-form reveal">
-        <form onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label>お名前<span class="req">*</span></label>
-              <input type="text" placeholder="山田 太郎" required>
-            </div>
-            <div class="form-group">
-              <label>会社名</label>
-              <input type="text" placeholder="株式会社〇〇">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>メールアドレス<span class="req">*</span></label>
-              <input type="email" placeholder="example@company.co.jp" required>
-            </div>
-            <div class="form-group">
-              <label>電話番号</label>
-              <input type="tel" placeholder="03-0000-0000">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>ご相談内容<span class="req">*</span></label>
-            <select required>
-              <option value="" disabled selected>お選びください</option>
-              <option>DX戦略コンサルティング</option>
-              <option>システム開発・導入支援</option>
-              <option>データ活用・AI導入</option>
-              <option>クラウド移行・最適化</option>
-              <option>サイバーセキュリティ対策</option>
-              <option>IT人材育成・組織変革</option>
-              <option>その他</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>メッセージ<span class="req">*</span></label>
-            <textarea placeholder="ご相談内容を具体的にご記入ください。" required></textarea>
-          </div>
-          <button type="submit" class="form-submit">送信する &nbsp;→</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FOOTER ─── -->
+<!-- ─── FOOTER ───────────────────────────────── -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#" class="logo">
-          <div class="logo-icon">
-            <svg viewBox="0 0 24 24"><path d="M2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10S2 17.52 2 12zm4.5 0c0 3.03 2.47 5.5 5.5 5.5s5.5-2.47 5.5-5.5S15.03 6.5 12 6.5 6.5 8.97 6.5 12z"/></svg>
-          </div>
-          <div class="logo-text">
-            株式会社ブルースカイ
-            <span>Blue Sky Co., Ltd.</span>
-          </div>
-        </a>
-        <p>テクノロジーで日本のビジネスを変える。企業のデジタル変革を一気通貫でご支援するITコンサルティングファームです。</p>
-      </div>
-      <div class="footer-col">
-        <h5>サービス</h5>
-        <ul>
-          <li><a href="#services">DX戦略コンサルティング</a></li>
-          <li><a href="#services">システム開発・導入</a></li>
-          <li><a href="#services">データ活用・AI導入</a></li>
-          <li><a href="#services">クラウド移行</a></li>
-          <li><a href="#services">セキュリティ対策</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>会社情報</h5>
-        <ul>
-          <li><a href="#about">会社概要</a></li>
-          <li><a href="#about">代表メッセージ</a></li>
-          <li><a href="#about">採用情報</a></li>
-          <li><a href="#about">ニュース</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>サポート</h5>
-        <ul>
-          <li><a href="#contact">お問い合わせ</a></li>
-          <li><a href="#contact">無料相談</a></li>
-          <li><a href="#">プライバシーポリシー</a></li>
-          <li><a href="#">利用規約</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 株式会社ブルースカイ. All Rights Reserved.</p>
-      <div class="footer-socials">
-        <a href="#" class="social-link" aria-label="Twitter">
-          <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.5 1.64a9 9 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.11 1a4.48 4.48 0 0 0-4.48 4.48c0 .35.04.69.11 1.02A12.74 12.74 0 0 1 2.4 2.22a4.48 4.48 0 0 0 1.39 5.98 4.45 4.45 0 0 1-2.03-.56v.06a4.48 4.48 0 0 0 3.59 4.39 4.5 4.5 0 0 1-2.02.08 4.48 4.48 0 0 0 4.18 3.11A9 9 0 0 1 1 19.54a12.72 12.72 0 0 0 6.88 2.02c8.26 0 12.77-6.84 12.77-12.77l-.01-.58A9.11 9.11 0 0 0 23 3z"/></svg>
-        </a>
-        <a href="#" class="social-link" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-        <a href="#" class="social-link" aria-label="Facebook">
-          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-      </div>
-    </div>
+  <div class="inner">
+    <p class="footer-logo">ケアプランセンター<em>花鈴</em></p>
+    <p class="footer-company">合同会社ノースアライブ</p>
+    <hr class="footer-hr">
+    <p class="footer-copy">© 合同会社ノースアライブ All rights reserved.</p>
   </div>
 </footer>
 
-<!-- ─── SCROLL TOP ─── -->
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="トップへ">
-  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
-
 <script>
-(function () {
-  'use strict';
-
-  /* ── JS が有効な場合のみ reveal を opacity:0 にする ── */
-  document.documentElement.classList.add('js-ready');
-
-  /* ── ヘッダー スクロール shadow ── */
-  var header     = document.getElementById('header');
-  var scrollTopBtn = document.getElementById('scrollTop');
-  window.addEventListener('scroll', function () {
-    header.classList.toggle('scrolled', window.scrollY > 20);
-    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
-  }, { passive: true });
-
-  /* ── モバイルナビ ── */
-  var hamburger = document.getElementById('hamburger');
-  var mobileNav = document.getElementById('mobile-nav');
-  hamburger.addEventListener('click', function () {
-    hamburger.classList.toggle('open');
-    mobileNav.classList.toggle('open');
-  });
-  window.closeMobileNav = function () {
-    hamburger.classList.remove('open');
-    mobileNav.classList.remove('open');
-  };
-
-  /* ── フローティングパーティクル ── */
-  var container = document.getElementById('heroParticles');
-  if (container) {
-    for (var p = 0; p < 18; p++) {
-      var dot = document.createElement('span');
-      dot.className = 'particle';
-      var size = (Math.random() * 4 + 2).toFixed(1);
-      dot.style.cssText = [
-        'left:'   + (Math.random() * 100).toFixed(1) + '%',
-        'width:'  + size + 'px',
-        'height:' + size + 'px',
-        'animation-duration:'  + (Math.random() * 12 + 8).toFixed(1) + 's',
-        'animation-delay:' + (Math.random() * 10).toFixed(1) + 's',
-        'opacity:' + (Math.random() * 0.4 + 0.1).toFixed(2)
-      ].join(';');
-      container.appendChild(dot);
-    }
-  }
-
-  /* ── カウントアップ アニメーション ── */
-  function animateCount(el) {
-    var target = parseInt(el.getAttribute('data-target'), 10);
-    var duration = 1800;
-    var start = null;
-    function step(ts) {
-      if (!start) start = ts;
-      var progress = Math.min((ts - start) / duration, 1);
-      // ease out quart
-      var ease = 1 - Math.pow(1 - progress, 4);
-      el.textContent = Math.round(ease * target);
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target;
-    }
-    requestAnimationFrame(step);
-  }
-
-  var countsDone = false;
-  function runCounts() {
-    if (countsDone) return;
-    countsDone = true;
-    document.querySelectorAll('.count').forEach(function (el) {
-      animateCount(el);
+  // ヘッダーの高さに合わせてヒーローのpadding-topを動的設定
+  function adjustHero() {
+    const header = document.querySelector('header');
+    const hero   = document.querySelector('.hero');
+    const h = header.offsetHeight;
+    hero.style.marginTop = h + 'px';
+    hero.style.height = 'calc(100svh - ' + h + 'px)';
+    document.querySelectorAll('section[id]').forEach(sec => {
+      sec.style.scrollMarginTop = h + 'px';
     });
   }
+  adjustHero();
+  window.addEventListener('resize', adjustHero);
 
-  /* ── スクロールリビール (IntersectionObserver) ── */
-  var reveals = document.querySelectorAll('.reveal');
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    adjustHero(); // モバイルナビ開閉時も再調整
+  });
+  function closeNav() {
+    mobileNav.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    adjustHero();
+  }
 
-  // ステガー遅延を付与
-  document.querySelectorAll('.services-grid, .features-grid, .contact-detail').forEach(function (grid) {
-    Array.from(grid.children).forEach(function (child, i) {
-      if (child.classList.contains('reveal')) {
-        child.style.transitionDelay = (i * 100) + 'ms';
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
       }
     });
-  });
+  }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
 
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          io.unobserve(entry.target);
-          // ヒーロー統計のカウントアップはヒーロー要素に近い場所で起動
-          var heroSection = document.getElementById('home');
-          var rect = heroSection ? heroSection.getBoundingClientRect() : null;
-          if (!countsDone && rect && rect.bottom > 0) runCounts();
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'  // 少し手前でトリガー
-    });
-
-    reveals.forEach(function (el) { io.observe(el); });
-
-    // ページロード直後にビューポート内の要素を可視化
-    window.addEventListener('load', function () {
-      reveals.forEach(function (el) {
-        var rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          el.classList.add('visible');
-        }
-      });
-      runCounts();
-    });
-  } else {
-    // IntersectionObserver 非対応ブラウザのフォールバック
-    reveals.forEach(function (el) { el.classList.add('visible'); });
-    runCounts();
-  }
-
-  // ページロード後1.5秒以内にカウントを確実に起動
-  setTimeout(runCounts, 1500);
-
-  /* ── フォーム送信 ── */
-  window.handleSubmit = function (e) {
-    e.preventDefault();
-    var btn = e.target.querySelector('.form-submit');
-    btn.textContent = '✓ 送信完了！ありがとうございました';
-    btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
-    btn.disabled = true;
-  };
-})();
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
